@@ -1,0 +1,6 @@
+[workspace]
+members = [
+    "audio_core",
+    "jni_bridge",
+]
+resolver = "2"

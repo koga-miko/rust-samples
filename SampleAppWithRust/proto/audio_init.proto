@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package audio;
+
+option java_package = "com.example.sampleappwithrust.proto";
+option java_outer_classname = "AudioProto";
+option java_multiple_files = true;
+
+// 音認コア初期化リクエスト
+// version_spec は oneof で「文字列指定」か「番号指定」のどちらかを選択
+message AudioInitRequest {
+  oneof version_spec {
+    string version_string = 1;
+    uint32 version_number = 2;
+  }
+}
+
+// 初期化完了コールバック応答
+message AudioCallbackResponse {
+  string version = 1;
+  string message = 2;
+}

@@ -1,0 +1,13 @@
+[package]
+name = "jni_bridge"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+# Gradle の libname = "mylib" に合わせた共有ライブラリ名
+name = "mylib"
+crate-type = ["cdylib"]
+
+[dependencies]
+audio_core = { path = "../audio_core" }
+jni = "0.21"
