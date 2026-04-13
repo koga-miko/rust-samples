@@ -1,0 +1,18 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "attach",
+            "name": "Android Rust Debug",
+            "pid": "${command:pickProcess}",
+            "initCommands": [
+                "platform select remote-android",
+                "platform connect connect://localhost:12345"
+            ],
+            "sourceMap": {
+                "/buildbot/src": "${workspaceFolder}"
+            }
+        }
+    ]
+}
