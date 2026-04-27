@@ -29,6 +29,14 @@ macro_rules! my_vec {
             v
         }
     };
+    // 区切りなしでスペース区切りも許可するバージョン
+    ($($x:expr)*) => {
+        {
+            let mut v = Vec::new();
+            $(v.push($x);)*
+            v
+        }
+    };
 }
 
 // ------------------------------------------------------------
@@ -146,6 +154,8 @@ fn main() {
     // --- 2. my_vec ---
     println!("\n=== my_vec ===");
     let nums = my_vec![1, 2, 3, 4, 5];
+    println!("{:?}", nums);
+    let nums = my_vec![1 2 3 4 5]; // 区切りなしスペース区切りも OK
     println!("{:?}", nums);
 
     let words = my_vec!["foo", "bar", "baz",]; // 末尾カンマも OK
